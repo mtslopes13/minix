@@ -34,7 +34,8 @@
 #include <minix/vfsif.h>
 #include <machine/vmparam.h>
 #include <assert.h>
-#include <fcntl.h>
+#include <fcntl.h>>
+#include <stdio.h>
 
 #define _KERNEL	/* for ELF_AUX_ENTRIES */
 #include <libexec.h>
@@ -149,6 +150,8 @@ static int get_read_vp(struct vfs_exec_info *execi,
 	/* Read in first chunk of file. */
 	if((r=map_header(execi)) != OK)
 		return r;
+
+	printf("Executando: <%s>\n", fullpath);
 
 	return OK;
 }
